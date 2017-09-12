@@ -1,7 +1,7 @@
 # rasp-notes
 
-Raspberry Pi notes - Rajan
-==========================
+Raspberry Pi notes
+==================
 
 Starting Raspberry Pi
 =====================
@@ -12,14 +12,14 @@ System on chip (SoC) multimedia processor.  Beneath memory chip at centre of boa
 No external device should draw > 100mA from any USB port
 
 Expand filesystem to fill entire SD card:
-     
-     expand_roofs option on raspi-config
-     
+
+`expand_roofs` option on `raspi-config`
+
 2 default user accounts:
 
  -  pi  (normal user)
  -  root (administrator or superuser)
-     
+
 Configuration files:
 --------------------
 
@@ -47,29 +47,30 @@ Forum says use apt-get upgrade after apt-get update.
 Book says:
 
 Check old versions using:
-     uname -a
-     /opt/vc/bin/vcgencmd version
 
-Download new versions from https://github.com/raspberrypi
+	uname -a
+	/opt/vc/bin/vcgencmd version
+
+Download new versions from <https://github.com/raspberrypi>
 
 Replace files on SD.
 
-Or use Rpi-Update (may need to sudo apt-get install rpi-update)
+Or use Rpi-Update (may need to `sudo apt-get install rpi-update`)
 
-Firmware in start.elf
+Firmware in `start.elf`
 
-Kernel in kernel.img
+Kernel in `kernel.img`
 
 To install Chromium:
 --------------------
 
      sudo apt-get install chromium-browser
-     [Didn't work for me, install iceweasel did]
-     
+     # [Didn't work for me, install iceweasel did]
+
 Virtual Network Computing (VNC)
 ===============================
 
-allows you to control Pi desktop from another computer.
+Allows you to control Pi desktop from another computer.
 
 Install VNC server on Pi first - e.g. TightVNC:
 
@@ -86,54 +87,54 @@ Carrie Anne Philbin
 login default is pi
 password default is raspberry
 
-startx
+`startx`
 	start X windows and desktop environment
 
-raspi-config
+`raspi-config`
 	Config screen (use sudo)
 
 To use another OS on NOOBS, hold shift when booting
 
-sudo shutdown -h now
+`sudo shutdown -h now`
 	Shuts down now
 
-sudo shutdown -r now
+`sudo shutdown -r now`
 	Restarts now
-	
-sudo reboot
+
+`sudo reboot`
     Reboots
 
-clear
+`clear`
 	Clears terminal screen
 
-ls -1
+`ls -1`
 	lists one filename per line
-ls -a
+`ls -a`
 	lists all files (including .hidden)
 
-Ctr-Alt-F1 to F6	virtual terminals:
-	Ctr-Alt-F1	original
-	Ctr-Alt-F1	desktop environment
+`Ctr-Alt-F1` to `F6`	virtual terminals:
+	`Ctr-Alt-F1`	original
+	`Ctr-Alt-F1`	desktop environment
 
-www.wiley.com/go/adventuresinrp   Videos
+<http://www.wiley.com/go/adventuresinrp>   Videos
 
-date
+`date`
 
-sudo apt-get install
+`sudo apt-get install`
 	To get and install new programs
-sudo apt-get update
+`sudo apt-get update`
 	To download info about updates
-sudo apt-get upgrade
+`sudo apt-get upgrade`
 	To install updates/upgrades
-sudo apt-get remove
+`sudo apt-get remove`
 	To remove programs
-sudo apt-get purge
+`sudo apt-get purge`
 	To remove programs and associated junk
-sudo apt-get autoremove
+`sudo apt-get autoremove`
 	General clean-up
-sudo apt-cache
+`sudo apt-cache`
     Utility for managing cached list of software
-sudo apt-cache search game
+`sudo apt-cache search game`
     Searches for game programs
     
 
@@ -144,19 +145,26 @@ Ctr-K	Move to search bar
 Linux
 -----
 
-ps	List processes running for me
-ps -e	List all processes on system
-ps -f   Gives detailed info on processes
-&	At end of line executes command in background
-./	Before filename to run script not in path
+`ps`	List processes running for me
+`ps -e`	List all processes on system
+`ps -f`   Gives detailed info on processes
+`&`	At end of line executes command in background
+`./`	Before filename to run script not in path
 
-Alt-F2	Run box
+`Alt-F2`	Run box
+
+Text-based browsers
+-------------------
 
 w3m is text-based web browser. I couldn't get it.
+
 Lynx is another:
+
 	sudo apt-get install lynx
-	When opening press 'o' to open options.
-	Change 'ask user' to 'accept all' (cookies).
+
+When opening press 'o' to open options.
+
+Change 'ask user' to 'accept all' (cookies).
 
 Python Turtle Module
 --------------------
@@ -178,68 +186,68 @@ for aColor in ["red", "green", "blue", "orange", "purple"]:
 ___________
 
 Sonic Pi
-=======
+========
 
 Developed by Sam Aaron, Cambridge, uses Ruby
 
-sudo apt-get install sonic-pi
+`sudo apt-get install sonic-pi`
 
-# To play Twinkle Twinkle:
-#  - default sound 'pretty_bell':
+    # To play Twinkle Twinkle:
+    #  - default sound 'pretty_bell':
 
-play 60    # play C (MIDI key no.)
-sleep 0.5  # pause 0.5 sec
-play 60
-sleep 0.5
-play 67
-sleep 0.5
-play 67
-sleep 0.5
-play 69
-sleep 0.5
-play 69
-sleep 0.5
-play 67
-sleep 0.5
+    play 60    # play C (MIDI key no.)
+    sleep 0.5  # pause 0.5 sec
+    play 60
+    sleep 0.5
+    play 67
+    sleep 0.5
+    play 67
+    sleep 0.5
+    play 69
+    sleep 0.5
+    play 69
+    sleep 0.5
+    play 67
+    sleep 0.5
 
-# To play as sequence use data structure:
-play_pattern [60,60,67,67,69,69,67]
-# ...plays with delay
+    # To play as sequence use data structure:
+    play_pattern [60,60,67,67,69,69,67]
+    # ...plays with delay
 
-# To play at 150bpm
-use_bpm 150
-play_pattern [60,60,67,67,69,69,67]
+    # To play at 150bpm
+    use_bpm 150
+    play_pattern [60,60,67,67,69,69,67]
 
-# Use loop to repeat:
-2.times do
-  play_pattern [67,67,65,65,64,64,62]
-  sleep 0.5
-end
+    # Use loop to repeat:
+    2.times do
+      play_pattern [67,67,65,65,64,64,62]
+      sleep 0.5
+    end
 
-# Translate into notes using variables:
-C = 60
-D = 62
-E = 64
-F = 65
-G = 67
-A = 69
+    # Translate into notes using variables:
+    C = 60
+    D = 62
+    E = 64
+    F = 65
+    G = 67
+    A = 69
 
-use_bpm 150
-play_pattern [C,C,G,G,A,A,G]
-play_pattern [F,F,E,E,D,D,C]
-play_pattern [G,G,F,F,E,E,D]
-play_pattern [G,G,F,F,E,E,D]
-play_pattern [C,C,G,G,A,A,G]
-play_pattern [F,F,E,E,D,D,C]
+    use_bpm 150
+    play_pattern [C,C,G,G,A,A,G]
+    play_pattern [F,F,E,E,D,D,C]
+    play_pattern [G,G,F,F,E,E,D]
+    play_pattern [G,G,F,F,E,E,D]
+    play_pattern [C,C,G,G,A,A,G]
+    play_pattern [F,F,E,E,D,D,C]
 
 
 __________
 
 My backup command:
 
-rsync -av --exclude=".*" -delete /home/pi/ /media/pi/8\ GB\ TDK/Backup
+`rsync -av --exclude=".*" -delete /home/pi/ /media/pi/8\ GB\ TDK/Backup`
 
-Cycle through open apps using Alt-Tab
+Cycle through open apps using `Alt-Tab`
 
 
 Raspberry Pi: A Quick Start Guide
@@ -252,26 +260,26 @@ Good simple book
 
 Own web page (to download code):
 
-http://pragprog.com/titles/msraspi
+<http://pragprog.com/titles/msraspi>
 
-Extract source code by:
+Extract source code with:
 
-tar xzf msraspi-code.tgz
+`tar xzf msraspi-code.tgz`
 
 BCM2835 contains ARM1176J-F processor running 700MHz and GPU named VideoCoreIV
 Graphics drivers are proprietary.
 
-CSI connector for camera
-DSI connector for display
-JTAG headers help debug hardware projects.
+*  CSI connector for camera
+*  DSI connector for display
+*  JTAG headers help debug hardware projects.
 
 5 status LEDs:
 
-	* OK indicates SD card access
-	* PWR turns red with power
-	* FDX shows if LAN running full duplex
-	* LNK blinks with LAN activity
-	* 10M on when Ethernet running 100Mbit/s
+* OK indicates SD card access
+* PWR turns red with power
+* FDX shows if LAN running full duplex
+* LNK blinks with LAN activity
+* 10M on when Ethernet running 100Mbit/s
 
 Bodhi Linux available
 
@@ -293,17 +301,18 @@ Preparing SD Card
 	Read the book or look on raspberrypi.org
 
 Date set from network and not retained
+
 To set date manually:
-	sudo date --set="2016-05-25 13:24:42"
+	`sudo date --set="2016-05-25 13:24:42"`
 
 Possible PDF readers are xpdf and evince. xpdf installed on RaPi3.
 
-sudo apt-get autoclean to remove files after upgrade.
+`sudo apt-get autoclean` to remove files after upgrade.
 
 Dependency packages no longer needed removed by:
-	sudo apt-get autoremove
+	`sudo apt-get autoremove`
 
-Add new user: adduser
+Add new user: `adduser`
 
 If you want to give your new user the same rights as the pi user,
 you have to add the user to the sudoers file:
@@ -315,43 +324,42 @@ which invokes vi text editor by default. To use nano:
 [Seems to open by default in nano on my RaPi3]
 
 Add a line in section:
-# User privilege specification
+`# User privilege specification`
 
 Like the following, but replace pi with new user name:
-pi ALL=(ALL) ALL
+`pi ALL=(ALL) ALL`
 
 To delete a user account but not files:
-userdel name
+`userdel name`
 
 To delete user account and files:
-userdel -r name
+`userdel -r name`
 
 To change user's attributes such as their home directory:
-	usermod
+	`usermod`
 
 To change a password
-
-	passwd
+	`passwd`
 
 List processes running:
-	ps
-	Get more info using -f option
-	List all processes with -e
-	See all info with -ef
+	`ps`
+	Get more info using `-f` option
+	List all processes with `-e`
+	See all info with `-ef`
 
-Pressing Ctrl-C terminates running process by sending SIGINT signal to process.
+Pressing `Ctrl-C` terminates running process by sending `SIGINT` signal to process.
 
 To stop background process use:
-	kill 1111
+	`kill 111`
 	where 111 is process ID (PID)
 	sends SIGTERM command
 
 Moving around man pages or less/more:
-	q           quit
-	spc PgDwn   down a page
-	b   ^b      PgUpup a page
-	Down Rtn    down a line
-	Up          up a line
+	`q`          quit
+	`spc` or `PgDwn`   down a page
+	`b`   `^b` `PgUpup` back a page
+	`Down` `Rtn`    down a line
+	`Up`         up a line
 
 __________
 Need to finish book then complete notes
