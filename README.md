@@ -451,6 +451,7 @@ General Commands
 File/Directory Commands
 -----------------------
 
+|               |                                              |
 |---------------|----------------------------------------------|
 |cat example.txt|Displays the contents of the file example.txt.|
 |cd /abc/xyz|Changes the current directory to the /abc/xyz directory.|
@@ -466,6 +467,7 @@ File/Directory Commands
 Networking/Internet Commands
 ----------------------------
 
+|        |                                                                                                          |
 |--------|----------------------------------------------------------------------------------------------------------|
 |ifconfig|To check the status of the wireless connection you are using  (to see if wlan0 has acquired an IP address).|
 |iwconfig|To check which network the wireless adapter is using.|
@@ -478,6 +480,7 @@ Networking/Internet Commands
 System Information Commands
 ---------------------------
 
+|        |                                         |
 |--------|-----------------------------------------|
 |cat /proc/meminfo|Shows details about your memory.|
 |cat /proc/partitions|Shows the size and number of partitions on your SD card or hard drive.|
